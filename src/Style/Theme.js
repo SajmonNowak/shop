@@ -3,10 +3,16 @@ import React from "react";
 
 const theme = {
   fontSizes: {
+    verySmall: "12px",
     small: "16px",
     medium: "22px",
-    large: "32px",
+    big: "32px",
+    large: "48px",
   },
+
+  color: {
+    primary: "#59606d",
+  }
 };
 
 const Theme = ({ children }) => (

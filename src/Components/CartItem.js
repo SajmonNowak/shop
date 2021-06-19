@@ -2,7 +2,7 @@ import React from "react";
 import { CartItemGrid } from "../Style/styles";
 import DropDown from "./DropDown";
 
-const CartItem = ({ prop, changeCart, remove }) => {
+const CartItem = ({ prop, changeCart, remove}) => {
   const product = prop.product;
 
   const changeQuantity = (value) => {

@@ -6,6 +6,8 @@ import NavBar from "./Components/NavBar";
 import Shop from "./Pages/Shop";
 import Theme from "./Style/Theme";
 import ProductPage from "./Pages/ProductPage";
+import GlobalStyle from "./Style/GlobalStyle";
+import Footer from "./Components/Footer";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -44,6 +46,7 @@ const App = () => {
 
   return (
     <Theme>
+      <GlobalStyle/>
       <BrowserRouter>
         <NavBar />
         <Switch>
@@ -67,6 +70,7 @@ const App = () => {
             )}
           />
         </Switch>
+        <Footer />
       </BrowserRouter>
     </Theme>
   );

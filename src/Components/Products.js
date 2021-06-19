@@ -1,16 +1,18 @@
 import React from "react";
 import products from "../Data/products.js";
 import Product from "./Product.js";
-import { ProductGrid, ProductDiv } from "../Style/styles";
+import { ProductGrid } from "../Style/styles";
 
-const Products = () => {
+const Products = ({ filter }) => {
   return (
     <ProductGrid>
-      {products.map((product) => (
-        <ProductDiv key={product.id} >
-          <Product  product={product} />
-        </ProductDiv>
-      ))}
+      {products.map((product) => {
+        if (filter.includes(product.color)) {
+          return (
+              <Product key={product.id} product={product} />
+          );
+        }
+      })}
     </ProductGrid>
   );
 };

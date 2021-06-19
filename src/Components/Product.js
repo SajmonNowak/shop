@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ProductDiv } from "../Style/styles";
 
 const Product = ({ product }) => {
   return (
-    <div>
+    <ProductDiv>
       <Link
         to={{
           pathname: `/shop/${product.name}`,
@@ -11,11 +12,11 @@ const Product = ({ product }) => {
         }}
       >
         <img src={product.imgs.primary} alt={product.name} />
-        <h4 className="name">{product.name}</h4>
         <h4 className="brand">{product.brand}</h4>
+        <h4 className="name">{product.name}</h4>
         <h4 className="price">{product.price} €</h4>
       </Link>
-    </div>
+      </ProductDiv>
   );
 };
 

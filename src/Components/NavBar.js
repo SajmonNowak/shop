@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Nav } from "../Style/styles";
+import CartIcon from "../Data/imgs/cart.png";
+import Logo from "../Data/imgs/logo.png";
 
 const NavBar = () => {
   return (
     <Nav>
-    <h3>Logo</h3>
+      <Link to="/">
+      <img className="logo" src={Logo} alt="Rezze"/>
+      </Link>
       <ul>
         <Link to="/">
           <li>Home</li>
@@ -14,7 +18,7 @@ const NavBar = () => {
           <li>Shop</li>
         </Link>
         <Link to="/Cart">
-          <li>Cart</li>
+          <li><img src={CartIcon} alt="Cart"/></li>
         </Link>
       </ul>
     </Nav>

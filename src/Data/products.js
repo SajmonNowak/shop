@@ -61,7 +61,7 @@ const products = [
     name: "Cross Oval Cluter",
     brand: "Topman",
     material: "Polished",
-    color: "Silver-colored",
+    color: "Silver",
     length: "61 cm",
     price: "15.99",
     imgs: {
@@ -74,7 +74,7 @@ const products = [
     name: "Long Basic Necklace",
     brand: "Urban Classics",
     material: "Polished",
-    color: "Silver-colored",
+    color: "Silver",
     length: "65 cm",
     price: "14.99",
     imgs: {
@@ -100,7 +100,7 @@ const products = [
     name: "Kunai",
     brand: "Vitaly",
     material: "Stainless steel",
-    color: "Matt black",
+    color: "Black",
     length: "74 cm",
     price: "69.95",
     imgs: {
@@ -113,7 +113,7 @@ const products = [
     name: "Sentimental",
     brand: "Emporio Armani",
     material: "Stainless steel",
-    color: "Black / Gold",
+    color: "Gold",
     length: "65 cm",
     price: "109",
     imgs: {
