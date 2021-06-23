@@ -17,6 +17,7 @@ export const Nav = styled.nav`
   width: 100%;
   height: 100px;
   font-size: ${(props) => props.theme.fontSizes.medium};
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
 
   .logo {
     height: 75px;
@@ -40,6 +41,59 @@ export const Nav = styled.nav`
     padding: 10px;
     text-decoration: none;
   }
+
+  .cartContainer {
+    position: relative;
+  }
+
+  .itemNumber {
+    position: absolute;
+    color: red;
+    border: 1px solid;
+    width: 25px;
+    text-align: center;
+    border-radius: 50%;
+    padding: 2px;
+    bottom: -5px;
+    right: -18px;
+    font-size: ${(props) => props.theme.fontSizes.small};
+    color: white;
+    background-color: red;
+    font-weight: bold;
+  }
+`;
+
+export const CartPage = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .cartInfo {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .cartTitle {
+    margin-top: 20px;
+  }
+
+  @media ${device.laptop} {
+    .cartInfo {
+      width: 100%;
+      max-width: 1500px;
+      display: flex;
+
+      * {
+        width: 100%;
+      }
+
+      .sideDiv {
+        max-width: 500px;
+        padding: 0 20px;
+      }
+    }
+  }
 `;
 
 export const ProductGrid = styled.div`
@@ -53,12 +107,11 @@ export const ProductGrid = styled.div`
   }
 `;
 
-export const ProductDiv = styled.div`
+export const ProductDivShop = styled.div`
   width: 100%;
   height: 100%;
   padding: 10px;
   font-size: ${(props) => props.theme.fontSizes.medium};
-
   a {
     text-decoration: none;
     color: black;
@@ -116,6 +169,56 @@ export const ProductInfo = styled.div`
     height: 40px;
     color: white;
     background-color: black;
+    border: none;
+    text-transform: uppercase;
+
+    &:hover {
+      color: black;
+      border: 1px solid black;
+      background-color: white;
+    }
+  }
+
+  .addedConfirmation {
+    color: green;
+    animation: fadeIn 1s;
+
+    i {
+      padding-right: 5px;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @media ${device.laptop} {
+    display: flex;
+
+    .imgDiv {
+      width: 500px;
+    }
+
+    .sideDiv {
+      align-self: flex-start;
+      max-width: 500px;
+      margin-top: 0px;
+      margin-left: 0px;
+    }
+
+    .price {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 500px;
+    }
   }
 `;
 
@@ -135,26 +238,34 @@ export const ReturnPolicy = styled.div`
   div p i {
     padding-right: 10px;
   }
+
+  @media ${device.laptop} {
+    margin-top: 50px !important;
+  }
 `;
 
 export const CartItemGrid = styled.div`
   display: flex;
-  width: 100%;
   padding: 20px;
   font-size: ${(props) => props.theme.fontSizes.small};
   border: 1px solid lightgrey;
-  margin-top: 10px;
+  margin-top: 5px;
+
+  .productImg {
+    width: auto;
+  }
 
   img {
     width: 100px;
+    margin-right: 10px;
   }
 
   .productInfo {
-    width: 100%;
     display: flex;
     flex-direction: column;
     padding-left: 20px;
     position: relative;
+    flex-grow: 1;
   }
 
   .brand {
@@ -173,9 +284,20 @@ export const CartItemGrid = styled.div`
 
   .trash {
     position: absolute;
-    right: 0px;
+    width: 15px;
     top: 0px;
+    right: 0px;
     color: lightgrey;
+  }
+
+  @media ${device.laptop} {
+    height: 250px;
+    width: 100% !important;
+    img {
+      width: auto;
+      height: 100%;
+      width: auto !important;
+    }
   }
 `;
 
@@ -184,10 +306,98 @@ export const CartGrid = styled.div`
   flex-direction: column;
 `;
 
+export const TotalDiv = styled.div`
+  border: 1px solid lightgrey;
+  padding: 10px;
+  margin-top: 20px;
+  max-width: 100%;
+
+  h2 {
+    font-size: ${(props) => props.theme.fontSizes.big};
+    margin-bottom: 10px;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2px;
+  }
+
+  .shipping {
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 2px;
+    padding-bottom: 4px;
+  }
+
+  button {
+    margin-top: 10px;
+    padding: 5px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: black;
+
+    &:hover {
+      color: black;
+      background-color: white;
+    }
+  }
+
+  @media ${device.laptop} {
+    margin-top: 5px;
+  }
+`;
+
+export const Voucher = styled.div`
+  border: 1px solid lightgrey;
+  padding: 10px;
+  margin-top: 10px;
+  max-width: 500px;
+
+  .addCoupon {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  i {
+    width: 30px !important;
+    text-align: center;
+    transition: transform 1s linear;
+    transform: ${(props) => (props.open ? "rotateX(180deg)" : "")};
+  }
+  }
+
+  .couponInput {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin-top: 20px;
+      height: 30px;
+      margin-bottom: 5px;
+    }
+    button {
+      align-self: flex-end;
+      height: 30px;
+      width: 100px;
+      color: black;
+      font-weight: bold;
+      background-color: white;
+
+      &:hover {
+        color: white;
+        background-color: black;
+      }
+    }
+  }
+`;
+
 export const Select = styled.select`
   border: 1px solid black;
   background-color: white;
   width: 60px;
+  max-width: 100px;
   height: 30px;
 `;
 
@@ -201,7 +411,6 @@ export const Header = styled.div`
 
   .imgTitleContainer {
     width: 100%;
-    background-color: orange;
     position: relative;
   }
 
@@ -226,6 +435,27 @@ export const Header = styled.div`
       margin-bottom: 25px;
     }
   }
+
+  @media ${device.tablet} {
+    .imgTitleContainer {
+      height: 800px;
+      overflow: hidden;
+    }
+
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -1000;
+      overflow: hidden;
+    }
+  }
 `;
 
 export const Button = styled.button`
@@ -243,7 +473,6 @@ export const FilterBtn = styled.button`
   height: 50px;
   border: 2px solid;
   margin: 5px;
-  //color: grey;
   background-color: transparent;
   font-size: ${(props) => props.theme.fontSizes.small};
 
@@ -251,11 +480,27 @@ export const FilterBtn = styled.button`
   border-color: ${(props) => (props.activated ? "black" : "grey")};
 `;
 export const ShopDiv = styled.div`
+  max-width: 1500px;
   .filterBar {
     width: 90%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    margin-top: 20px;
+  }
+
+  .productsContainer {
+    margin-top: 20px;
+  }
+
+  .shopHeading {
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 50px;
+  }
+
+  @media ${device.tablet} {
+    margin: 0 auto;
   }
 `;
 
@@ -264,7 +509,7 @@ export const HomeBody = styled.div`
   .goldSilver {
     display: flex;
 
-    div {
+    a {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -308,6 +553,26 @@ export const HomeBody = styled.div`
       color: white;
       font-size: ${(props) => props.theme.fontSizes.large};
       position: absolute;
+    }
+  }
+
+  @media ${device.laptop} {
+    .comingSoon {
+      height: 400px;
+
+      img {
+        height: 400px;
+      }
+    }
+
+    .goldSilver {
+      height: 500px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 `;
@@ -382,5 +647,51 @@ export const FooterBar = styled.footer`
     bottom: 0px;
     font-size: ${(props) => props.theme.fontSizes.verySmall};
     color: grey;
+  }
+`;
+
+export const ProductDivCarousel = styled.div`
+  width: 100%;
+  padding: 10px;
+  font-size: ${(props) => props.theme.fontSizes.small};
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  img {
+    height: 150px;
+  }
+
+  h4 {
+    font-weight: normal;
+  }
+
+  .name {
+    font-size: ${(props) => props.theme.fontSizes.small};
+    font-weight: bold;
+  }
+
+  .brand {
+    display: none;
+  }
+
+  .price {
+    padding-top: 0px;
+  }
+
+  @media ${device.tablet} {
+    img {
+      height: 300px;
+    }
+  }
+`;
+export const Recommendation = styled.div`
+  margin-top: 40px;
+
+  .like {
+    padding: 0px 0px 5px 20px;
   }
 `;

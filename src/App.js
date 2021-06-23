@@ -48,7 +48,7 @@ const App = () => {
     <Theme>
       <GlobalStyle/>
       <BrowserRouter>
-        <NavBar />
+        <NavBar cartItems = { cartItems }/>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/shop" exact component={Shop} />
