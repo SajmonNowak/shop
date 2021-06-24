@@ -50,10 +50,10 @@ const App = () => {
       <BrowserRouter>
         <NavBar cartItems = { cartItems }/>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/shop" exact component={Shop} />
+          <Route path="/shopping-cart" exact component={Home} />
+          <Route path="/shopping-cart/shop" exact component={Shop} />
           <Route
-            path="/cart"
+            path="/shopping-cart/cart"
             render={(props) => (
               <Cart
                 {...props}
@@ -64,7 +64,7 @@ const App = () => {
             )}
           />
           <Route
-            parth="/shop/:name"
+            parth="/shopping-cart/shop/:name"
             render={(props) => (
               <ProductPage {...props} changeCart={changeCart} />
             )}

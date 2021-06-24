@@ -346,6 +346,18 @@ export const TotalDiv = styled.div`
 
   @media ${device.laptop} {
     margin-top: 5px;
+
+    h2 {
+      font-size: ${(props) => props.theme.fontSizes.large};
+    }
+
+    h4 {
+      font-size: 18px;
+    }
+
+    button {
+      font-size: ${(props) => props.theme.fontSizes.medium};
+    }
   }
 `;
 
@@ -391,6 +403,11 @@ export const Voucher = styled.div`
       }
     }
   }
+
+  @media ${device.laptop} {
+    font-size: 18px;
+  }
+
 `;
 
 export const Select = styled.select`
@@ -628,12 +645,18 @@ export const FooterBar = styled.footer`
 
     .sM {
       font-size: 25px;
+      margin-right: 10px;
       a {
         color: white;
       }
 
       i {
         padding: 5px;
+        padding-right: 10px;
+
+        &:hover {
+          color: lightgrey;
+        }
       }
     }
   }

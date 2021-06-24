@@ -15,10 +15,10 @@ const Footer = () => {
         </div>
         <div className="sM">
             <Link to={{ pathname: "https://Instagram.com" }} target="_blank">
-        <i class="fab fa-instagram"></i>
+        <i className="fab fa-instagram"></i>
         </Link>
         <Link to={{ pathname: "https://Pinterest.com" }} target="_blank">
-        <i class="fab fa-pinterest"></i>
+        <i className="fab fa-pinterest"></i>
         </Link>
         </div>
       </div>

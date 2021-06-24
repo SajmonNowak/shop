@@ -24,6 +24,12 @@ const ProductPage = (props) => {
     }, 4000);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0,0)
+  })
+
+  console.log("render");
+
   return (
     <div>
       <ProductInfo>
@@ -38,7 +44,7 @@ const ProductPage = (props) => {
           <button onClick={() => handleClick()}>Add to Cart</button>
           {confVisible && (
             <p className="addedConfirmation" ref={itemAddedRef}>
-              <i class="fas fa-check"></i>Item Added to Cart
+              <i className="fas fa-check"></i>Item Added to Cart
             </p>
           )}
           <ReturnPolicy>

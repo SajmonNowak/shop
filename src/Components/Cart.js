@@ -35,18 +35,18 @@ const Cart = ({ cartItems, changeCart, remove }) => {
         </CartGrid>
         <div className="sideDiv">
           <TotalDiv>
-            <h2>Total</h2>
-            <div>
-              <h4>Products</h4>
-              <h4>{price}</h4>
+            <h2 style={{marginBottom: "20px"}}>Total</h2>
+            <div >
+              <h4 style={{fontWeight: "normal"}}>Products</h4>
+              <h4 style={{fontWeight: "normal"}}>{price} €</h4>
             </div>
             <div className="shipping">
-              <h4>Shipping</h4>
+              <h4 style={{fontWeight: "normal"}}>Shipping</h4>
               <h4>Free</h4>
             </div>
             <div>
               <h4>Total</h4>
-              <h4>{price}</h4>
+              <h4>{price} €</h4>
             </div>
             <button>Buy</button>
           </TotalDiv>

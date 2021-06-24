@@ -5,7 +5,7 @@ const Product = ({ product }) => {
   return (
     <Link
       to={{
-        pathname: `/shop/${product.name}`,
+        pathname: `/shoppping-cart/shop/${product.name}`,
         state: { product },
       }}
     >

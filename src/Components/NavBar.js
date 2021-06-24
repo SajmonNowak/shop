@@ -15,17 +15,17 @@ const NavBar = ({ cartItems }) => {
 
   return (
     <Nav>
-      <Link to="/">
+      <Link to="/shopping-cart">
         <img className="logo" src={Logo} alt="Rezze" />
       </Link>
       <ul>
-        <Link to="/">
+        <Link to="/shopping-cart">
           <li>Home</li>
         </Link>
-        <Link to="/Shop">
+        <Link to="/shopping-cart/shop">
           <li>Shop</li>
         </Link>
-        <Link to="/Cart">
+        <Link to="/shopping-cart/cart">
           <li className="cartContainer">
             <img src={CartIcon} alt="Cart" />
             <p className="itemNumber">{showItems()}</p>

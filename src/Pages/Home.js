@@ -40,7 +40,7 @@ const Home = () => {
           <div className="titleText">
             <h1> Beatiful Julery</h1>
             <h2>for Him & Her</h2>
-            <Link to="/Shop">
+            <Link to="/shopping-cart/shop">
               <Button to="/Shop" renderAs={Link}>
                 Shop
               </Button>
@@ -50,13 +50,13 @@ const Home = () => {
       </Header>
       <HomeBody>
         <div className="goldSilver">
-          <Link to={{ pathname: "/Shop", state: { filter: "Gold" } }}>
+          <Link to={{ pathname: "/shopping-cart/shop", state: { filter: "Gold" } }}>
             <img src={GoldPic} alt="Gold" />
             <div className="imgText">Gold</div>
           </Link>
           <Link
             to="/Shop"
-            to={{ pathname: "/Shop", state: { filter: "Silver" } }}
+            to={{ pathname: "/shopping-cart/shop", state: { filter: "Silver" } }}
           >
             <img src={SilverPic} alt="Silver" />
             <div className="imgText">Silver</div>
