@@ -38,7 +38,7 @@ const Home = () => {
             </video>
           )}
           <div className="titleText">
-            <h1> Beatiful Julery</h1>
+            <h1> Beautiful Jewelry</h1>
             <h2>for Him & Her</h2>
             <Link to="/shopping-cart/shop">
               <Button to="/Shop" renderAs={Link}>
