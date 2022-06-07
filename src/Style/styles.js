@@ -378,7 +378,7 @@ export const Voucher = styled.div`
     transition: transform 1s linear;
     transform: ${(props) => (props.open ? "rotateX(180deg)" : "")};
   }
-  }
+  
 
   .couponInput {
     display: flex;
