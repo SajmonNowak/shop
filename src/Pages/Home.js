@@ -38,7 +38,7 @@ const Home = () => {
             </video>
           )}
           <div className="titleText">
-            <h1> Beatiful Julery</h1>
+            <h1> Beautiful Juwelry</h1>
             <h2>for Him & Her</h2>
             <Link to="/shopping-cart/shop">
               <Button to="/Shop" renderAs={Link}>
@@ -55,7 +55,6 @@ const Home = () => {
             <div className="imgText">Gold</div>
           </Link>
           <Link
-            to="/Shop"
             to={{ pathname: "/shopping-cart/shop", state: { filter: "Silver" } }}
           >
             <img src={SilverPic} alt="Silver" />

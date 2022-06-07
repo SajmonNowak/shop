@@ -572,7 +572,7 @@ export const HomeBody = styled.div`
       position: absolute;
     }
   }
-
+  
   @media ${device.laptop} {
     .comingSoon {
       height: 400px;
